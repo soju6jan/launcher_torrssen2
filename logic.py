@@ -31,7 +31,7 @@ from datetime import datetime
 class Logic(object):
     db_default = {
         'auto_start' : 'False',
-        'url' : 'https://localhost:8080'
+        'url' : 'http://localhost:8080'
     }
 
     current_process = None
@@ -141,6 +141,7 @@ class Logic(object):
             for f in os.listdir(target):
                 if f.endswith('.jar'):
                     target = os.path.join(target, f)
+                    break
             cmd = ['java', '-jar', target]
             Logic.current_process = subprocess.Popen(cmd)
             #--session_dir="your/new/shorter/path"
