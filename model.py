@@ -40,5 +40,12 @@ class ModelSetting(db.Model):
     def as_dict(self):
         return {x.name: getattr(self, x.name) for x in self.__table__.columns}
 
+    @staticmethod
+    def get(key):
+        try:
+            return db.session.query(ModelSetting).filter_by(key=key).first().value
+        except Exception as e:
+            logger.error('Exception:%s %s', e, key)
+            logger.error(traceback.format_exc())
 #########################################################
 

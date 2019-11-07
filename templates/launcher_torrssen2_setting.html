@@ -5,7 +5,9 @@
   {{ macros.setting_checkbox('status', '실행 상태', value=arg['status'], desc='On : 실행중') }}
   <form id='setting' name='setting'>
     {{ macros.setting_checkbox('auto_start', '시작시 자동실행', value=arg['auto_start'], desc=['On : 시작시 자동으로 실행합니다.']) }}
-    {{ macros.setting_input_text_and_buttons('url', 'URL', [['go_btn', 'GO']], value=arg['url'], desc=['기본 포트 : 8080']) }}
+    {{ macros.setting_input_int('port', 'Port', value=arg['port'], desc='실행 포트') }}
+    <!-- {{ macros.setting_input_text_and_buttons('url', 'URL', [['go_btn', 'GO']], value=arg['url'], desc=['기본 포트 : 8080']) }} -->
+    {{ macros.setting_input_text_and_buttons('ddns', 'DDNS or IP', [['go_btn', 'GO']], value=arg['ddns'], desc=['포트를 제외한 주소']) }}
     {{ macros.setting_button([['global_setting_save_btn', '저장']]) }}
   </form>    
     {{ macros.m_hr()}}
@@ -36,7 +38,9 @@ $('#status').change(function() {
 
 $("body").on('click', '#go_btn', function(e){
   e.preventDefault();
-  url = document.getElementById("url").value
+  url = document.getElementById("ddns").value
+  port = document.getElementById("port").value
+  url = url + ':' + port
   window.open(url, "_blank");
 });
 

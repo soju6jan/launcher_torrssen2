@@ -31,7 +31,8 @@ from datetime import datetime
 class Logic(object):
     db_default = {
         'auto_start' : 'False',
-        'url' : 'http://localhost:8080'
+        'port' : '8080',
+        'ddns' : 'http://localhost'
     }
 
     current_process = None
@@ -142,7 +143,12 @@ class Logic(object):
                 if f.endswith('.jar'):
                     target = os.path.join(target, f)
                     break
-            cmd = ['java', '-jar', target]
+            port = ModelSetting.get('port') 
+            if port == '8080':
+                cmd = ['java', '-jar', target]
+            else:
+                cmd = ['java', '-jar', '-Dserver.port=%s' % port, target]
+
             Logic.current_process = subprocess.Popen(cmd)
             #--session_dir="your/new/shorter/path"
 

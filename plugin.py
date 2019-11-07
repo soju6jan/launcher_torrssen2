@@ -37,7 +37,7 @@ def plugin_unload():
     Logic.plugin_unload()
 
 plugin_info = {
-    'version' : '0.1.0.0',
+    'version' : '0.1.0.1',
     'name' : 'torrssen2',
     'category_name' : 'launcher',
     'icon' : '',
