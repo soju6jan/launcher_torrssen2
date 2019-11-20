@@ -145,9 +145,9 @@ class Logic(object):
                     break
             port = ModelSetting.get('port') 
             if port == '8080':
-                cmd = ['java', '-jar', target]
+                cmd = ['java', '-jar', '-Dfile.encoding=UTF-8', target]
             else:
-                cmd = ['java', '-jar', '-Dserver.port=%s' % port, target]
+                cmd = ['java', '-jar', '-Dfile.encoding=UTF-8', '-Dserver.port=%s' % port, target]
 
             Logic.current_process = subprocess.Popen(cmd)
             #--session_dir="your/new/shorter/path"
