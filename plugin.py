@@ -25,7 +25,7 @@ from system.logic import SystemLogic
 from logic import Logic
 from model import ModelSetting
 
-package_name = __name__.split('.')[0].split('_sjva')[0]
+package_name = __name__.split('.')[0]
 logger = get_logger(package_name)
 
 blueprint = Blueprint(package_name, package_name, url_prefix='/%s' %  package_name, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
@@ -43,7 +43,7 @@ plugin_info = {
     'icon' : '',
     'developer' : 'soju6jan',
     'description' : 'torrssen2 런처<br><a href="https://github.com/tarpha/torrssen2" target="_blank">torrssen2 Git</a><br><br>나스당 TRPE님이 개발하신 torrssen2를 설치 & 실행하는 런처입니다.<br>도커 이외의 환경에서는 JAVA 실행환경을 따로 설치해야합니다.',
-    'home' : 'https://github.com/soju6jan/launcher_torrssen2_sjva',
+    'home' : 'https://github.com/soju6jan/launcher_torrssen2',
     'more' : '',
 }
 #########################################################
