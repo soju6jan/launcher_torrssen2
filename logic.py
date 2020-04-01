@@ -180,7 +180,7 @@ class Logic(object):
                         shutil.rmtree(target)
                 commands = [
                     ['msg', u'잠시만 기다려주세요.'],
-                    ['git', 'clone', 'https://github.com/tarpha/torrssen2', target],
+                    ['git', 'clone', 'https://github.com/tarpha/torrssen2', target, '--depth', '1'],
                 ]
                 if app.config['config']['running_type'] == 'docker':
                     commands.append(['apk', 'add', 'openjdk8-jre'])
