@@ -24,8 +24,8 @@ from system.logic import SystemLogic
 # 패키지
 package_name = __name__.split('.')[0]
 logger = get_logger(package_name)
-from logic import Logic
-from model import ModelSetting
+from .logic import Logic
+from .model import ModelSetting
 
 
 
@@ -39,11 +39,11 @@ def plugin_unload():
 
 plugin_info = {
     'version' : '0.1.0.2',
-    'name' : 'torrssen2',
+    'name' : u'torrssen2',
     'category_name' : 'launcher',
     'icon' : '',
     'developer' : 'soju6jan',
-    'description' : 'torrssen2 런처<br><a href="https://github.com/tarpha/torrssen2" target="_blank">torrssen2 Git</a><br><br>나스당 TRPE님이 개발하신 torrssen2를 설치 & 실행하는 런처입니다.<br>도커 이외의 환경에서는 JAVA 실행환경을 따로 설치해야합니다.',
+    'description' : u'torrssen2 런처<br><a href="https://github.com/tarpha/torrssen2" target="_blank">torrssen2 Git</a><br><br>나스당 TRPE님이 개발하신 torrssen2를 설치 & 실행하는 런처입니다.<br>도커 이외의 환경에서는 JAVA 실행환경을 따로 설치해야합니다.',
     'home' : 'https://github.com/soju6jan/launcher_torrssen2',
     'more' : '',
 }
@@ -51,9 +51,9 @@ plugin_info = {
 
 # 메뉴 구성.
 menu = {
-    'main' : [package_name, 'torrssen2'],
+    'main' : [package_name, u'torrssen2'],
     'sub' : [
-        ['setting', '설정'], ['log', '로그']
+        ['setting', u'설정'], ['log', u'로그']
     ], 
     'category' : 'launcher',
 }  
